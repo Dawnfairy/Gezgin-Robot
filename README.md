@@ -47,3 +47,45 @@ kullanarak ekrana yazdırıyoruz. Son olarak elimizdeki robotun
 gectigi yolları ve buldugu en kısa yolu bir text dosyası acarak
 bu dosyaya yazdırıyoruz. Boylelikle projedeki tum adımları
 yerine getiriyoruz.
+
+PROBLEM 1:
+Bu problemde sizden robotu ızgara (grid) üzerinde verilen hedefe engellere takılmadan en
+kısa sürede ve en kısa yoldan ulaştırmanız beklenmektedir. Robotu tüm ızgarayı değil,
+yalnızca gerekli yolları gezerek hedefe ulaşmasını sağlamalısınız.
+Adım 1: Gerekli boyutlarda karesel bir ızgara alanı oluşturmanız gerekmektedir.
+Adım 2: Izgara üzerine engeller ve duvarlar yerleştirilmelidir. Izgara boyutu, engel sayısı ve
+engellerin konum bilgileri içeriği matris biçimindeki bir text dosyasından alınacaktır. Bu text
+dosyasına önceden verilecek bir url adresinden (e-destek üzerinden paylaşılacaktır) uygulama
+çalıştırıldığında otomatik olarak erişilerek dosyadaki tasarıma göre ızgara ve engel yapısı
+oluşturulacaktır. Engeller birbirinden farklı tipteki nesnelerden oluşabilir. (Verilecek text
+dosyasındaki 0 değeri engelsiz yollara; 1, 2, 3 değerleri ise üç farklı tipteki nesne için
+engelleri temsil edecektir. Birbirinden farklı sayıda karesel alan işgal eden bu üç engel
+nesnesinden 1 değerli nesne yalnızca 1 karelik alan 2 değerine sahip nesneler yanyana 2
+kare içeren maksimum 2x2 lik; 3 değerine sahip nesneler ise yan yana 3 kare içeren
+maksimum 3x3 lük kare alana Şekil 1’ deki gibi yerleştirilecektir. )
+Adım 3: Robotun başlangıç ve hedef noktaları ızgara üzerindeki uygun (engel veya duvar
+içermeyen) karelere rastgele belirlenmelidir. Robot başlangıçta tüm ızgara dünyasını
+bilmemelidir, sadece bir adım sonraki kareleri görebilmelidir. Her adımda robotun
+öğrenmediği kareler bulutlu (kapalı) olarak gösterilmeli, öğrenilen kareler ise açılarak ilgili
+karelerde bulunan nesneye göre (engel, duvar, yol, vs.) belirtilmelidir.
+Adım 4: Tüm bu bilgiler doğrultusunda, robotun hedefe en kısa sürede ulaşabileceği en kısa
+yol, adım adım ızgara üzerinde gösterilmelidir. Robotun daha önce geçtiği yerler belli olacak
+şekilde her adımda yol üzerinde iz bırakması gerekmektedir. Hedefe ulaşıldığında ise
+başlangıç noktasından hedef konuma giden robota göre en kısa yol ızgara üzerinde ayrıca
+çizdirilmelidir. Geçen toplam süre (sn cinsinden) ve kaç kare üzerinden geçildiği bilgileri
+ekranda gösterilmelidir.
+
+PROBLEM 2:
+Bu problemde sizden robotu labirentteki çıkış noktasına ulaştırmanız beklenmektedir.
+Adım 1: Kullanıcı tarafından istenilen boyutlarda bir ızgara oluşturmanız gerekmektedir.
+Adım 2: Izgara üzerine 1 nolu tipte engeller yerleştirilerek labirent oluşturulmalıdır. Labirent
+içerisinde mutlaka çıkışa ulaşamayan yollar bulunmalıdır.
+Adım 3: Labirentin giriş ve çıkış noktaları dörtgen ızgaranın herhangi çapraz 2 köşesi olarak
+belirlenmelidir. Robot başlangıçta labirenti bilmemelidir. Labirentte yanlış girilen bir yol
+algılandığında robotun doğru olarak tespit ettiği en son konuma giderek buradan itibaren yol
+aramaya devam etmesi gerekmektedir.
+Adım 4: Tüm bu bilgiler doğrultusunda, robotun çıkışa ulaşmak için izlediği yol adım adım
+ızgara üzerinde gösterilmelidir. Her adımda robotun daha önce geçtiği yollar üzerinde iz
+bırakması gerekmektedir. Robot hedefe ulaştığında giriş noktasından çıkış noktasına giden
+yol ızgara üzerinde çizilmelidir. Geçen toplam süre (sn cinsinden), kaç kare üzerinden
+geçildiği bilgileri ekranda gösterilmelidir.
