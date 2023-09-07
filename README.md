@@ -1,5 +1,5 @@
 # Gezgin-Robot
-Hazırlayanlar : Fatma Nur Kurt, Tayyib Okur
+Hazırlayanlar : Fatma Nur Kurt, Tayyib Okur.
 Projenin ismi ”Gezgin Robot Projesi”dir.
 Proje kapsamında belirli kurallara gore hareket eden bir robotun onundeki engelleri asarak istenen hedefe ulasmasını saglayan bir oyun tasarlanması beklenmektedir. Oyunda 2 adet problemin cozulmesi gerekmektedir. Problem 1 ve problem 2’de 4 adet adım bulunmaktadır. Projemizde Main, Izgara,
 Engel, Robot ve EnKısaYolBul olmak uzere 5 farklı sınıf
