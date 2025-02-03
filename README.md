@@ -1,92 +1,123 @@
-# Gezgin-Robot
-Hazırlayanlar : Fatma Nur Kurt, Tayyib Okur.
-Projenin ismi ”Gezgin Robot Projesi”dir.
-Proje kapsamında belirli kurallara gore hareket eden bir robotun onundeki engelleri asarak istenen hedefe ulasmasını saglayan bir oyun tasarlanması beklenmektedir. Oyunda 2 adet problemin cozulmesi gerekmektedir. Problem 1 ve problem 2’de 4 adet adım bulunmaktadır. Projemizde Main, Izgara,
-Engel, Robot ve EnKısaYolBul olmak uzere 5 farklı sınıf
-vardır. Bize onceden verilen bir url icerisindeki text dosyasına
-Main sınıfımızdaki UrlOku metoduyla eriserek ve dosyadaki
-tasarıma gore ızgara, engel yapısını Izgara sınıfımızdaki
-IzgaraOlustur metoduyla olusturarak Problem 1’deki adım 1
-ve adım 2’yi gerceklestiriyoruz. Adım 3’te istenilen robotun
-baslangıc ve hedef noktalarını ızgara uzerinde uygun karelere
-Main sınıfımızdaki yapıcımızda rastgele belirliyoruz. Aynı
-zamanda Main sınıfımızdaki Paint metoduyla tum ızgarayı
-bulutlarla kaplayarak robotun tum ızgara dunyasını degil
-sadece cevresini gormesini saglıyoruz. Boylelikle Problem 1
-adım 3’teki tum isterleri gerceklestirmis bulunuyoruz. Adım
-4’te robotun gectigi yolları ve cevresini ogrenerek hedefe
-ulasmasını ve hedefe ulasırken daha once gectigi yollar belli
-olacak sekilde her adımda yol uzerinde iz bırakması istenmektedir. Hedefe ulastıgında ise robotun ogrendigi yolların icinde baslangıc noktasından hedef noktasına giden en kısa yol ızgara uzerinde ayrıca cizdirilmelidir. Robotun gectigi yol
-ları ogrenmesi icin Robot sınıfındaki koordinat degiskenlerini
-Main sınıfında bulunan YolAra metoduna aktarıyoruz. Robotun hedef noktasına ulasana kadar engel bulunmayan yollardan
-hareket etmesini ve ogrenilen yolları bir ArrayList’te tutarak
-hafızasına almasını saglıyoruz. Olusturdugumuz ArrayList’i
-EnKısaYolBul sınıfında kullanarak robotun ogrendigi yolların icinde baslangıc noktasından hedef noktasına giden en
-kısa yolu buluyoruz. Buldugumuz yolu baska bir ArrayList’e
-aktarıyoruz. Topladıgımız verileri kullanarak Main sınıfında
-bulunan Paint metoduyla ekrana robotun ogrendigi, ustunden
-gectigi yolları ve en kısa yolu cizdiriyoruz. Son olarak kodumuza ekledigimiz bir sayac ile toplam sure ve toplam gecilen
-kare sayılarının verilerini Paint metodunda kullanarak ekrana
-yazdırıyoruz. Boylelikle Problem 1 icin istenilen tum adımları
-yerine getiriyoruz. Problem 2 adım 1 ve adım 2’de istenilenleri
-yaparak kullanıcı tarafından girilen boyutlarda olusturdugumuz
-ızgara uzerine engeller yerlestiriyoruz ve rastgele bir labirent
-elde ediyoruz. Kullanıcının girdigi boyutları Main sınıfından
-Engel sınıfının yapıcısına aktarıyoruz. Engel sınıfındaki Generate metodu ile labirentimizi, icerisinde cıkmaz sokaklar
-da olacak sekilde rastgele olusturuyoruz. Adım 3’te bizden
-istenilen labirentin giris ve cıkıs noktalarını, labirentin capraz
-koselerinde olacak sekilde Engel sınıfımızdaki LabirentYol
-metodunda belirliyoruz. Robot sınıfından aldıgımız robotun hareket koordinat verilerini LabirentYol metodunda kullanıyoruz. Bu metotta Stack yapısını kullanarak robot yanlıs
-bir yola girdiginde dogru olarak tespit ettigi en son konuma gitmesini ve o konumdan itibaren yol aramaya devam
-etmesini saglıyoruz. Aynı zamanda Main sınıfımızdaki Paint metoduyla tum ızgarayı bulutlarla kaplayarak robotun tum
-labirent dunyasını bilmemesini de saglıyoruz. Boylelikle Problem 2 adım 3’u de yerine getiriyoruz. Adım 4’de LabirentYol
-metodunda elde ettigimiz verileri kullanarak Paint metoduyla robotun cıkısa ulasmak icin izledigi yolu adım adım ızgara
-uzerinde gosteriyoruz. Robot hedefe ulastıgında ise giris noktasından cıkıs noktasına giden yolu ızgara uzerinde ayrıca
-cizdiriyoruz. Kodumuza ekledigimiz bir sayac ile toplam sure
-ve toplam gecilen kare sayılarının verilerini Paint metodunda
-kullanarak ekrana yazdırıyoruz. Son olarak elimizdeki robotun
-gectigi yolları ve buldugu en kısa yolu bir text dosyası acarak
-bu dosyaya yazdırıyoruz. Boylelikle projedeki tum adımları
-yerine getiriyoruz.
+# Gezgin Robot Projesi
+**Hazırlayanlar:** Fatma Nur Kurt, Tayyib Okur
+---
 
-PROBLEM 1:
-Bu problemde sizden robotu ızgara (grid) üzerinde verilen hedefe engellere takılmadan en
-kısa sürede ve en kısa yoldan ulaştırmanız beklenmektedir. Robotu tüm ızgarayı değil,
-yalnızca gerekli yolları gezerek hedefe ulaşmasını sağlamalısınız.
-Adım 1: Gerekli boyutlarda karesel bir ızgara alanı oluşturmanız gerekmektedir.
-Adım 2: Izgara üzerine engeller ve duvarlar yerleştirilmelidir. Izgara boyutu, engel sayısı ve
-engellerin konum bilgileri içeriği matris biçimindeki bir text dosyasından alınacaktır. Bu text
-dosyasına önceden verilecek bir url adresinden (e-destek üzerinden paylaşılacaktır) uygulama
-çalıştırıldığında otomatik olarak erişilerek dosyadaki tasarıma göre ızgara ve engel yapısı
-oluşturulacaktır. Engeller birbirinden farklı tipteki nesnelerden oluşabilir. (Verilecek text
-dosyasındaki 0 değeri engelsiz yollara; 1, 2, 3 değerleri ise üç farklı tipteki nesne için
-engelleri temsil edecektir. Birbirinden farklı sayıda karesel alan işgal eden bu üç engel
-nesnesinden 1 değerli nesne yalnızca 1 karelik alan 2 değerine sahip nesneler yanyana 2
-kare içeren maksimum 2x2 lik; 3 değerine sahip nesneler ise yan yana 3 kare içeren
-maksimum 3x3 lük kare alana Şekil 1’ deki gibi yerleştirilecektir. )
-Adım 3: Robotun başlangıç ve hedef noktaları ızgara üzerindeki uygun (engel veya duvar
-içermeyen) karelere rastgele belirlenmelidir. Robot başlangıçta tüm ızgara dünyasını
-bilmemelidir, sadece bir adım sonraki kareleri görebilmelidir. Her adımda robotun
-öğrenmediği kareler bulutlu (kapalı) olarak gösterilmeli, öğrenilen kareler ise açılarak ilgili
-karelerde bulunan nesneye göre (engel, duvar, yol, vs.) belirtilmelidir.
-Adım 4: Tüm bu bilgiler doğrultusunda, robotun hedefe en kısa sürede ulaşabileceği en kısa
-yol, adım adım ızgara üzerinde gösterilmelidir. Robotun daha önce geçtiği yerler belli olacak
-şekilde her adımda yol üzerinde iz bırakması gerekmektedir. Hedefe ulaşıldığında ise
-başlangıç noktasından hedef konuma giden robota göre en kısa yol ızgara üzerinde ayrıca
-çizdirilmelidir. Geçen toplam süre (sn cinsinden) ve kaç kare üzerinden geçildiği bilgileri
-ekranda gösterilmelidir.
+## Proje Açıklaması
 
-PROBLEM 2:
-Bu problemde sizden robotu labirentteki çıkış noktasına ulaştırmanız beklenmektedir.
-Adım 1: Kullanıcı tarafından istenilen boyutlarda bir ızgara oluşturmanız gerekmektedir.
-Adım 2: Izgara üzerine 1 nolu tipte engeller yerleştirilerek labirent oluşturulmalıdır. Labirent
-içerisinde mutlaka çıkışa ulaşamayan yollar bulunmalıdır.
-Adım 3: Labirentin giriş ve çıkış noktaları dörtgen ızgaranın herhangi çapraz 2 köşesi olarak
-belirlenmelidir. Robot başlangıçta labirenti bilmemelidir. Labirentte yanlış girilen bir yol
-algılandığında robotun doğru olarak tespit ettiği en son konuma giderek buradan itibaren yol
-aramaya devam etmesi gerekmektedir.
-Adım 4: Tüm bu bilgiler doğrultusunda, robotun çıkışa ulaşmak için izlediği yol adım adım
-ızgara üzerinde gösterilmelidir. Her adımda robotun daha önce geçtiği yollar üzerinde iz
-bırakması gerekmektedir. Robot hedefe ulaştığında giriş noktasından çıkış noktasına giden
-yol ızgara üzerinde çizilmelidir. Geçen toplam süre (sn cinsinden), kaç kare üzerinden
-geçildiği bilgileri ekranda gösterilmelidir.
+"**Gezgin Robot Projesi**" kapsamında, belirli kurallara göre hareket eden bir robotun önündeki engelleri aşarak istenen hedefe ulaşmasını sağlayan bir oyun tasarlanması beklenmektedir. Projede iki farklı problem ele alınmaktadır; her problemde 4 adet adım bulunmaktadır.
+
+Projede yer alan ana sınıflar:
+- **Main:** Projenin başlangıç noktası. URL üzerinden verilen text dosyasına `UrlOku` metodu ile erişilir ve dosyadaki tasarıma göre ızgara, engel yapısı oluşturulur. Ayrıca rastgele başlangıç ve hedef noktaları belirlenir, tüm ızgara bulutlarla kaplanarak robotun yalnızca çevresini görmesi sağlanır. 
+- **Izgara:** Dosyadan elde edilen veriler doğrultusunda ızgara yapısını oluşturur.
+- **Engel:** Farklı tipteki engellerin (1, 2, 3 değerlerine sahip nesneler) ve duvarların ızgaraya yerleştirilmesinden sorumludur.
+- **Robot:** Robotun hareket koordinatlarını ve izlediği yolları tutar; robotun her adımda geçtiği kareler üzerinde iz bırakması sağlanır.
+- **EnKısaYolBul:** Robotun öğrendiği yollar arasında başlangıç noktasından hedefe giden en kısa yolu belirler ve ekrana çizdirir.
+
+---
+
+
+## Kullanılan JDK ve Gerekli Bağımlılıklar
+
+Bu projeyi derlemek ve çalıştırmak için Java Development Kit (JDK) gerekmektedir.
+
+- **Geliştirilen JDK Sürümü:** Şimdilik JDK 17 kullanılmıştır.
+- **Diğer Sürümler:** JDK 11, JDK 18 veya daha güncel sürümler de büyük olasılıkla uyumlu olacaktır. Ancak projenin düzgün çalışması için JDK 17 ile test edilmiştir.
+- **Bağımlılıklar:** Projede ek bir kütüphane veya bağımlılık kullanılmamaktadır. Sadece standart Java kütüphaneleri kullanılmaktadır. Eğer gelecekte harici kütüphane eklenirse, bu README bölümünde güncelleme yapılacaktır.
+
+---
+
+## URL'lerle İlgili Not
+
+Projede, veri okuma işlemleri için aşağıdaki örnek URL'ler kullanılmıştır:
+
+- `http://bilgisayar.kocaeli.edu.tr/prolab2/url1.txt`
+- `http://bilgisayar.kocaeli.edu.tr/prolab2/url2.txt`
+
+**Dikkat:** Bu URL'ler ders kapsamında örnek olarak sağlanmıştır ve güncel olmayabilir ya da erişim sağlanamayabilir. 
+
+---
+
+## Problem Detayları
+
+### **PROBLEM 1**
+
+Robotun, ızgara üzerinde verilen hedefe engellere takılmadan en kısa sürede ulaşması beklenmektedir.
+
+- **Adım 1:** Gerekli boyutlarda karesel bir ızgara alanı oluşturulur.
+- **Adım 2:**  
+  - Izgara üzerine, text dosyasında verilen tasarıma göre engeller ve duvarlar yerleştirilir.  
+  - Dosyada; `0` değeri engelsiz yolu, `1`, `2`, `3` değerleri ise farklı tipteki engelleri temsil etmektedir.  
+    - `1` değeri: 1 karelik alan  
+    - `2` değeri: Yanyana 2 kareden oluşan, maksimum 2x2’lik alan  
+    - `3` değeri: Yanyana 3 kareden oluşan, maksimum 3x3’lük alan
+- **Adım 3:**  
+  - Robotun başlangıç ve hedef noktaları ızgara üzerinde uygun (engel veya duvar içermeyen) karelere rastgele belirlenir.  
+  - `Paint` metodu kullanılarak, tüm ızgara bulutlarla kaplanır; böylece robot sadece çevresindeki kareleri görebilir.
+- **Adım 4:**  
+  - Robot, engel bulunmayan yollardan hareket ederek geçtiği yolları öğrenir.  
+  - Bu veriler `Robot` sınıfındaki koordinat değişkenleri aracılığıyla `YolAra` metoduna aktarılır ve öğrenilen yollar bir ArrayList’te saklanır.  
+  - `EnKısaYolBul` sınıfı, bu ArrayList’i kullanarak başlangıçtan hedefe giden en kısa yolu belirler ve bu yol ayrı bir ArrayList’e aktarılır.  
+  - Son olarak, `Paint` metodu ile ekrana robotun izlediği yol, geçtiği adımlar ve en kısa yol çizdirilir; toplam süre (sn cinsinden) ve geçen kare sayısı ekrana yazdırılır.
+
+---
+
+### **PROBLEM 2**
+
+Robotun, oluşturulan labirentteki çıkış noktasına ulaşması sağlanmalıdır.
+
+- **Adım 1:**  
+  - Kullanıcı tarafından belirlenen boyutlarda bir ızgara oluşturulur.
+- **Adım 2:**  
+  - Izgara üzerine, sadece `1` nolu tipte engeller yerleştirilerek bir labirent oluşturulur.  
+  - Labirent içerisinde çıkışa ulaşamayan yollar da mevcuttur.  
+  - Kullanıcının belirttiği boyutlar `Engel` sınıfının yapıcısına aktarılır ve `Generate` metodu ile labirent, çıkmaz sokaklar da içerecek şekilde rastgele oluşturulur.
+- **Adım 3:**  
+  - Labirentin giriş ve çıkış noktaları, ızgaranın çapraz köşeleri olarak belirlenir.  
+  - Robot başlangıçta labirenti bilmez; yanlış bir yola girdiğinde, robotun doğru olarak tespit ettiği en son konuma dönmesi için Stack yapısı kullanılır.  
+  - `LabirentYol` metodu, robotun hareket koordinat verilerini kullanarak doğru yolu arar.  
+  - `Paint` metodu ile tüm labirent bulutlarla kaplanarak robotun sadece çevresini görmesi sağlanır.
+- **Adım 4:**  
+  - Robotun çıkışa ulaşmak için izlediği yol, adım adım ızgara üzerinde gösterilir.  
+  - Her adımda, robotun geçtiği yollarda iz bırakması sağlanır.  
+  - Robot hedefe ulaştığında, giriş noktasından çıkış noktasına giden yol ayrıca çizdirilir.  
+  - Toplam süre (sn) ve geçen kare sayısı ekrana yazdırılır.
+
+Son olarak, robotun geçtiği yollar ve bulduğu en kısa yol, bir text dosyasına yazdırılır.
+
+---
+
+## Kurulum ve Çalıştırma
+
+1. **Depoyu Klonlayın:**
+    Terminal veya Git arayüzünüz üzerinden aşağıdaki komut ile projeyi yerel makinenize klonlayın:
+
+   ```bash
+   git clone https://github.com/Dawnfairy/Gezgin-Robot.git
+
+3. **JDK Kurulumu:**
+   
+    Proje, JDK 17 kullanılarak geliştirilmiş ve test edilmiştir.
+
+    Uygun bir JDK (JDK 17 veya daha güncel) yüklü olduğundan emin olun.
+
+    JDK'yı yükledikten sonra, JAVA_HOME ortam değişkeninizi ayarlamayı unutmayın.
+
+
+4. **Projeyi IDE'nizde Açın:**
+
+    Tercih ettiğiniz Java geliştirme ortamında (örneğin, Eclipse, IntelliJ IDEA veya NetBeans) projeyi açın.
+
+4. **Projeyi Çalıştırın:**
+
+    Main.java dosyasını çalıştırarak projeyi başlatın.
+
+---
+
+## İletişim
+
+Proje ile ilgili sorularınız veya katkı talepleriniz için lütfen aşağıdaki kişilerle iletişime geçin:
+
+  Fatma Nur Kurt - kurtfatmanur8@gmail.com
+  Tayyib Okur - ultratayyib@gmail.com
+
+Bu proje, verilen gereksinimler doğrultusunda tasarlanmış ve iki farklı problem çözümünü içermektedir. Projeyi geliştirmek veya katkıda bulunmak isterseniz, lütfen pull request göndererek ya da issue oluşturarak bildirin.
