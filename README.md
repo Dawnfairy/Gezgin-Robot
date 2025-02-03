@@ -94,20 +94,24 @@ Son olarak, robotun geçtiği yollar ve bulduğu en kısa yol, bir text dosyası
    ```bash
    git clone https://github.com/Dawnfairy/Gezgin-Robot.git
 
-3. **JDK Kurulumu:**
+2. **JDK Kurulumu:**
    
     Proje, JDK 17 kullanılarak geliştirilmiş ve test edilmiştir.
 
     Uygun bir JDK (JDK 17 veya daha güncel) yüklü olduğundan emin olun.
 
-    JDK'yı yükledikten sonra, JAVA_HOME ortam değişkeninizi ayarlamayı unutmayın.
+    JDK'yı aşağıdaki bağlantılardan indirebilirsiniz:
+    [Oracle JDK 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
+    [OpenJDK 17](https://jdk.java.net/17/)
+   
+    JDK'yı yükledikten sonra, `JAVA_HOME` ortam değişkeninizi ayarlamayı unutmayın.
 
 
 4. **Projeyi IDE'nizde Açın:**
 
     Tercih ettiğiniz Java geliştirme ortamında (örneğin, Eclipse, IntelliJ IDEA veya NetBeans) projeyi açın.
 
-4. **Projeyi Çalıştırın:**
+5. **Projeyi Çalıştırın:**
 
     Main.java dosyasını çalıştırarak projeyi başlatın.
 
